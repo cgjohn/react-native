@@ -6,8 +6,8 @@ class HomePage extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Host Room" onPress={() => console.log("Host pressed")}/>
-        <Button title="Join Room" onPress={() => console.log("Join pressed")} />
+        <Button title="Host Room" onPress={() => this.props.navigation.navigate('AuthScreen')}/>
+        <Button title="Join Room" onPress={() => this.props.navigation.navigate('JoinRoom')} />
       </View>
     );
   }

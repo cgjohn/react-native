@@ -24,6 +24,7 @@ class CreateRoom extends Component {
     if (this.state.eventName.trim() === "") {
       return;
     }
+
   };
 
   render() {
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
   },
   input: {
   	marginBottom: 30,
+    textAlign: 'left'
   }
 });
 

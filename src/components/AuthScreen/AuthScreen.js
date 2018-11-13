@@ -3,11 +3,15 @@ import { View, Button, StyleSheet, Text, Dimensions } from "react-native";
 
 class AuthScreen extends Component {
 
+  authHandler = () => {
+    this.props.navigation.navigate("CreateRoom")
+  }
+
   render() {
     return (
       <View style={styles.container}>
       	<Text style={styles.text}>In order to be a host you must have a spotify account</Text>
-        <Button title="Authenticate Spotify" onPress={() => console.log("auth pressed")}/>
+        <Button title="Authenticate Spotify" onPress={this.authHandler}/>
       </View>
     );
   }
