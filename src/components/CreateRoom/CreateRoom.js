@@ -24,6 +24,8 @@ class CreateRoom extends Component {
     if (this.state.eventName.trim() === "") {
       return;
     }
+    console.log("create event pressed")
+    this.props.navigation.navigate('Player')
 
   };
 
@@ -48,9 +50,9 @@ class CreateRoom extends Component {
 
 				<View>
 					<Button
-					  title="Create Event"
+					  title="Create Room"
 					  style={styles.eventButton}
-					  onPress={this.eventSubmitHandler}
+					  onPress={() => this.props.navigation.navigate('Player')}
 					/>
 				</View>
 
