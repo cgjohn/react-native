@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import { View, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet } from "react-native";
 
 class HomePage extends Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: '',
   };
   render() {
+    console.log("room props = ", this.props)
     return (
       <View style={styles.container}>
-        <Button title="Host Room" onPress={() => this.props.navigation.navigate('AuthScreen')}/>
-        <Button title="Join Room" onPress={() => this.props.navigation.navigate('RoomList')} />
+        <Text>Welcome to the room of {this.props.roomName}</Text>
       </View>
     );
   }

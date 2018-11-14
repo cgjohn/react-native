@@ -31,9 +31,7 @@ export default class Player extends Component
 			// update state with user info
 			this.setState({ spotifyUserName: result.display_name });
 			// play song
-			return Spotify.playURI("spotify:track:7kQiiHm3jvdz2npYMW7wcE", 0, 0);
-		}).then(() => {
-			// success
+			//return Spotify.playURI("spotify:track:7kQiiHm3jvdz2npYMW7wcE", 0, 0);
 		}).catch((error) => {
 			// error
 			Alert.alert("Error", error.message);
@@ -42,13 +40,7 @@ export default class Player extends Component
 
 	goToInitialScreen()
 	{
-		const navAction = NavigationActions.reset({
-			index: 0,
-			actions: [
-			  NavigationActions.navigate({ routeName: 'initial'})
-			]
-		});
-		this.props.navigation.dispatch(navAction);
+		this.props.navigation.navigate('HomeScreen')
 	}
 
 	spotifyLogoutButtonWasPressed()

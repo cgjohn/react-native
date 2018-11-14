@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { View, TextInput, Button, StyleSheet } from "react-native";
+import { connect } from 'react-redux'
+import { addRoom } from '../../store/actions/index'
 
 class CreateRoom extends Component {
   state = {
     eventName: "",
-    eventCode: ""
+    eventCode: "",
+    eventKey: toString(Math.random())
   };
 
   eventNameChangedHandler = val => {
@@ -20,14 +23,10 @@ class CreateRoom extends Component {
     });
   };
 
-  eventSubmitHandler = () => {
-    if (this.state.eventName.trim() === "") {
-      return;
-    }
-    console.log("create event pressed")
+  addRoomHandler = () => {
+    this.props.onAddRoom(this.state.eventName, this.state.eventCode, this.state.eventKey)
     this.props.navigation.navigate('Player')
-
-  };
+  }
 
   render() {
     return (
@@ -52,7 +51,7 @@ class CreateRoom extends Component {
 					<Button
 					  title="Create Room"
 					  style={styles.eventButton}
-					  onPress={() => this.props.navigation.navigate('Player')}
+					  onPress={this.addRoomHandler}
 					/>
 				</View>
 
@@ -75,4 +74,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CreateRoom;
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddRoom: (name, code, key) => dispatch(addRoom(name, code, key)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CreateRoom);
